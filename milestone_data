@@ -1,1 +1,36 @@
+Local county health departments conduct inspections of restaurants and other retail food establishments to ensure that employees practice safe food handling and that kitchen facilities meet required standards. The data we will be using is Restaurant Inspection scores in the state of Washington. We have chosen to focus on King County, as this is the county where Seattle is located, yielding results from a higher population. 
+
+The dataset contains Health Department inspection results for food service establishments in King County from 2006 to the present. The information is organized by Business, Inspection Date, and Violation. Each row represents a single inspection. 
+
+Source: https://catalog.data.gov/dataset/restaurant-inspections  
+
+To clean this data in preparation for analysis, we can start by creating a new table with only the relevance variables. As of right now, here are the variables provided in the dataset:
+Name: Name of the restaurant
+Program Identifier: Name of the restaurant (same as Name)
+Inspection Date: Date that inspection took place
+Description: Describes the restaurant’s seating capacity and Risk Category, which is associated with the level of food safety risk (I being lowest risk, IV being highest) associated with the restaurant based on what kind of food they serve
+Address: Restaurant’s address
+City: Restaurant’s city
+Zip Code: Restaurant’s zip code
+Phone: Restaurant’s phone number
+Longitude: Restaurant’s longitude
+Latitude: Restaurant’s latitude
+Inspection Business Name: Name of the restaurant (same as Name)
+Inspection Type: What kind of inspection was performed
+Inspection Score: The score that was given by the inspector to the restaurant (0 is ideal, the higher the score is, the worse)
+Inspection Result: If Inspection Type is ‘Routine Inspection/Field Review’, Inspection Result will be either ‘Satisfactory’ or ‘Unsatisfactory’. If Inspection Type is ‘Consultation/Education - Field’, Inspection Result will be either ‘Complete’ or ‘Incomplete’
+Inspection Closed Business: “True” if the inspection caused the restaurant to be closed. “False” if the restaurant remained open after inspection. 
+Violation Type: Labelled as “red” for high risk, meaning there were improper practices or procedures identified as the most prevalent contributing factors of foodborne illness or injury. Labelled as “blue” for low risk, meaning there are preventative measures that include practices and procedures which effectively control the introduction of pathogens, chemicals, and physical objects into food. 
+Violation Description: Provides a detailed explanation of the specific food safety issue identified during an inspection.
+Violation Points: How many points are given for the violation (the more points, the worse). Values are discrete and fall between 0 and 30. 
+Business_ID: a unique identifier assigned to each establishment in the health department’s database
+Inspection_Serial_Num: The inspection event’s unique tracking number
+Violation_Record_ID: the unique identifier for a specific violation found during a specific inspection
+Grade: a numeric code representing the severity of the violation; Grade 1 = Critical / Priority violation, Grade 2 = Priority Foundation / Intermediate violation, Grade 3 = Core violation
+
+For our analysis, we have determined that we only need the following variables: Name, Inspection Date, Description, Inspection Type, Inspection Score, Inspection Result, Inspection Closed Business, Violation Type, Violation Description, Violation Points, and Grade.
+
+To clean the data, we will go through and replace missing data with NaN, although as far as we have seen, there is no missing data. This is hard to verify just from looking at, though, since there are over 277,000 rows. Additionally, going through to make sure the numerical variables are type int and float is important, especially when we plot these values. 
+
+We aim to estimate the probability that a restaurant’s next inspection in King’s Country, Washington will include at least one critical (“red”) violation. The model is intended to support risk based scheduling and targeted education.
 
