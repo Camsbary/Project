@@ -2,7 +2,7 @@ Local county health departments conduct inspections of restaurants and other ret
 
 The dataset contains Health Department inspection results for food service establishments in King County from 2006 to the present. The information is organized by Business, Inspection Date, and Violation. Each row represents a single inspection. 
 
-Source: https://catalog.data.gov/dataset/restaurant-inspections  
+Source: https://kingcounty.gov/en/dept/dph/health-safety/food-safety/search-restaurant-safety-ratings#/ 
 
 To clean this data in preparation for analysis, we can start by creating a new table with only the relevance variables. As of right now, here are the variables provided in the dataset:
 Name: Name of the restaurant
